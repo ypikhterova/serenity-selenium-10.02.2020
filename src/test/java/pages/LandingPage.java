@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("https://www.linkedin.com/")
-
 public class LandingPage extends PageObject {
-
 
 
     @FindBy(xpath = "//input[@name='session_key']")
@@ -20,15 +18,10 @@ public class LandingPage extends PageObject {
     @FindBy(xpath = "//button[@aria-label='i18n_sign-in']")
     private WebElement loginButton;
 
-
-
-
-    public LandingPage() {
+    public void login(String userEmail, String userPassword) {
+        userEmailField.sendKeys(userEmail);
+        userPasswordField.sendKeys(userPassword);
+        loginButton.click();
     }
 
-    public void login(String userEmail, String userPassword){
-    userEmailField.sendKeys(userEmail);
-    userPasswordField.sendKeys(userPassword);
-    loginButton.click();
-}
 }
